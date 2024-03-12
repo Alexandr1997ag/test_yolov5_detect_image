@@ -24,10 +24,8 @@ def main():
 
     results.print()
     #results.show()
+    coords = []
     for i in range(len(results.xyxy[0])):
-    # print(i)
-    # for j in range(4):
-    # print(int(results.xyxy[0][i][j]))
         x1 = results.xyxy[0][i][0].item()
         y1 = results.xyxy[0][i][1].item()
         x2 = results.xyxy[0][i][2].item()
