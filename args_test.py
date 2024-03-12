@@ -36,17 +36,17 @@ def main():
         h = y2 - y1
         coords.append([int(x1), int(y1), int(w), int(h)])
 
-if len(results.xyxy[0])>0:
-    for i in range(len(coords)):
-        print('***************************************')
-        print(f"\n{i}", coords[i])
-        print('***************************************')
-        print(f"Inference time: {elapsed_time:.4f} seconds")
-        print('***************************************')
-    else:
-        print('***************************************')
-        print("No objects detected in the image.")
-        print('***************************************')
+    if len(results.xyxy[0])>0:
+        for i in range(len(coords)):
+            print('***************************************')
+            print(f"\n{i}", coords[i])
+            print('***************************************')
+            print(f"Inference time: {elapsed_time:.4f} seconds")
+            print('***************************************')
+        else:
+            print('***************************************')
+            print("No objects detected in the image.")
+            print('***************************************')
 
 if __name__ == "__main__":
     main()
