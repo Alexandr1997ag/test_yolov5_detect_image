@@ -2,7 +2,7 @@ import cv2
 import torch
 from PIL import Image
 import argparse
-
+import time
 def main():
 
     parser = argparse.ArgumentParser(description="YOLOv5 Inference Script")
@@ -16,10 +16,11 @@ def main():
 
 
     img = Image.open(args.image_path).resize((640, 640))  
-
+    start_time = time.time()
 
     results = model(img, size=640) 
-
+    end_time = time.time()
+    elapsed_time = end_time - start_time
 
     results.print()
     #results.show()
@@ -28,6 +29,8 @@ def main():
     if len(results.xyxy[0]) > 0:
         print('***************************************')
         print('\ncoordinates: ', results.xyxy[0])
+        print('***************************************')
+        print(f"Inference time: {elapsed_time:.4f} seconds")
         print('***************************************')
     else:
         print('***************************************')
