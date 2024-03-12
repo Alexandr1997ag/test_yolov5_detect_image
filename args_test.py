@@ -15,9 +15,10 @@ def main():
     model.conf = 0.20
 
 
-    img = Image.open(args.image_path).resize((640, 640))  
+    img = Image.open(args.image_path)#.resize((640, 640))  
     start_time = time.time()
 
+    # results = model(img, size=640) 
     results = model(img, size=640) 
     end_time = time.time()
     elapsed_time = end_time - start_time
