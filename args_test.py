@@ -24,11 +24,22 @@ def main():
 
     results.print()
     #results.show()
+    for i in range(len(results.xyxy[0])):
+    # print(i)
+    # for j in range(4):
+    # print(int(results.xyxy[0][i][j]))
+        x1 = results.xyxy[0][i][0].item()
+        y1 = results.xyxy[0][i][1].item()
+        x2 = results.xyxy[0][i][2].item()
+        y2 = results.xyxy[0][i][3].item()
+        w = x2 - x1
+        h = y2 - y1
+        coords.append([int(x1), int(y1), int(w), int(h)])
 
-
-    if len(results.xyxy[0]) > 0:
+if len(results.xyxy[0])>0:
+    for i in range(len(coords)):
         print('***************************************')
-        print('\ncoordinates: ', results.xyxy[0])
+        print(f"\n{i}", coords[i])
         print('***************************************')
         print(f"Inference time: {elapsed_time:.4f} seconds")
         print('***************************************')
